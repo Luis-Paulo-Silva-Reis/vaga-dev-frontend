@@ -1,1 +1,88 @@
-<p>login works!</p>
+<div class="background-img d-flex flex-column">
+  <div
+    class="container d-flex align-items-center justify-content-between p-2 align-items-center"
+  >
+    <div>
+      <h4 class="text-white">Vaga Front-end AchieveMore</h4>
+    </div>
+
+    <div class="nav-links text-white">
+      <a href="#" class="me-3"
+        >Institucional <img src="../../../assets/arrow symbol.png" alt=""
+      /></a>
+      <a href="#" class="me-3"
+        >Produtos <img src="../../../assets/arrow symbol.png" alt=""
+      /></a>
+      <a href="#">Contato</a>
+    </div>
+  </div>
+
+  <div class="background-text text-center my-auto flex-column">
+    <h1 class="text-white">Bem vindo(a)</h1>
+    <p class="text-white">Use esse formulário para fazer login</p>
+  </div>
+</div>
+
+<div class="login-container d-flex flex-start my-5">
+  <div class="login-card mx-auto">
+    <h3 class="text-center">Área restrita</h3>
+    <p class="text-center">Digite seu e-mail e senha para entrar</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="my-4">
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Digite seu e-mail"
+          formControlName="email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Digite sua senha"
+          formControlName="password"
+        />
+        <label
+          *ngIf="
+            loginForm.get('password')?.hasError('minlength') &&
+            loginForm.get('password')?.touched
+          "
+        >
+          A senha precisa ter no minimo 6 caracteres
+        </label>
+      </div>
+      <div class="form-check my-4">
+        <mat-slide-toggle
+          [hideIcon]="true"
+          [aria-label]="ForgottenPassword"
+        ></mat-slide-toggle>
+        <label class="form-check-label mx-1" for="rememberMe"
+          >Esqueceu sua senha</label
+        >
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<footer class="bg-light py-3">
+  <div class="container text-center">
+    <div class="justify-content-center d-flex">
+      <a href="#" class="text-muted p-4">Política de Privacidade</a>
+
+      <a href="#" class="text-muted p-4">Política de Segurança</a>
+    </div>
+
+    <div>
+      <p class="text-muted mt-2 copyright">
+        &copy; 2024 AchieveMore - Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
